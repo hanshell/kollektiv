@@ -1,0 +1,17 @@
+PersonImages
+PERSONS
+
+create table PERSONS(
+P_ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+firstName varchar(40),
+lastName varchar(40),
+fieldOfStudy varchar(100),
+birthYear INT,
+PRIMARY KEY(P_ID)
+);
+
+create table PersonImages(
+imdb_id INT,
+image BLOB,
+FOREIGN KEY (imdb_ID) REFERENCES Persons(P_ID)
+);

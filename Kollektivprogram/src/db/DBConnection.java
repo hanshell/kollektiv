@@ -15,13 +15,13 @@ public class DBConnection {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
 			System.out.println("Embedded driver found. Trying to connect...");
 		} catch (InstantiationException e) {
-			System.out.println("Could not connect");
+			System.out.println("Driver not found");
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			System.out.println("Could not connect");
+			System.out.println("Driver not found");
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			System.out.println("Could not connect");
+			System.out.println("Driver not found");
 		}
 		try {
 			connection=DriverManager.getConnection(connectStatement);

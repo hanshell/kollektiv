@@ -12,8 +12,6 @@ public class Person {
 	private String fieldOfStudy;
 	private int birthYear;
 	
-	private static PreparedStatement ps=null;
-	
 	public Person(String firstName, String lastName, String fieldOfStudy, int birthYear) {
 		super();
 		this.firstName = firstName;

@@ -1,22 +1,14 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
-
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 public class LoginPanel extends JFrame{
 	/**
@@ -27,7 +19,6 @@ public class LoginPanel extends JFrame{
 	private JPanel welcomePanel;
 	private JPanel loginPanel;
 	private JPanel buttonPanel;
-	
 	private JLabel loginDisplay;
 	private JTextField username;
 	private JPasswordField password;

@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class LoginPanel extends JFrame{
+public class LoginFrame extends JFrame{
 	/**
 	 * 
 	 */
@@ -33,7 +33,7 @@ public class LoginPanel extends JFrame{
 	private JButton loginButton;
 	private JButton cancel;
 
-	public LoginPanel(){
+	public LoginFrame(){
 		super("Login frame");
 		setLayout(new FlowLayout(FlowLayout.RIGHT));
 		setWelcomePanel();
@@ -45,6 +45,12 @@ public class LoginPanel extends JFrame{
 		
 		loginButton.addActionListener(new loginPressed());
 		cancel.addActionListener(new cancelPressed());
+		
+		setVisible(true);
+		setResizable(false);
+		setSize(450, 192);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	private void setWelcomePanel(){
 		welcomePanel=new JPanel(new FlowLayout());
@@ -86,7 +92,8 @@ public class LoginPanel extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			JOptionPane.showMessageDialog(null, "You have logged out! Unfortunately, this button as of now does not have any logout-functionality");
+			dispose(); //Disposes the login-frame
+			new MainFrame(); //Opens the main application frame
 		}
 	}
 	private class cancelPressed implements ActionListener {
@@ -94,10 +101,8 @@ public class LoginPanel extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.exit(0);
-			
-		}
-		
+			System.exit(0);	
+		}	
 	}
 	// TODO Auto-generated method stub
 }		

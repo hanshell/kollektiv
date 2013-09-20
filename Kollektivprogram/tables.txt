@@ -6,7 +6,9 @@ P_ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1
 firstName varchar(40),
 lastName varchar(40),
 fieldOfStudy varchar(100),
+gender varchar(10),
 birthYear INT,
+phoneNumber varchar(15),
 PRIMARY KEY(P_ID)
 );
 

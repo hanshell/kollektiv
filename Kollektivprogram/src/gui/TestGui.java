@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,23 +20,6 @@ public class TestGui extends Object{
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JFrame picframe=new JFrame();
-		BufferedImage buff=ImageIO.read(new File(IMAGE_PATH));
-		JLabel pic=new JLabel(new ImageIcon(buff));
-		picframe.add(pic);
-		picframe.setVisible(true);
-//		picframe.setSize(buff.getWidth()+40, buff.getHeight()+20);
-		picframe.pack();
-
-		picframe.setLocationRelativeTo(null);
-		picframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		//		try{
-//			displayFrameSize(frame);
-//		}
-//		catch(InterruptedException ie){
-//			System.out.println("Thread interrupted");
-//		}
 	}
 	public static void displayFrameSize(JFrame frame) throws InterruptedException{
 		while(true){
@@ -43,5 +27,4 @@ public class TestGui extends Object{
 			Thread.sleep(2000);
 		}
 	}
-
 }

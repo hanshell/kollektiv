@@ -93,7 +93,7 @@ public class LoginFrame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			dispose(); //Disposes the login-frame
-			new MainFrame(); //Opens the main application frame
+			new MainPanel(); //Opens the main application frame
 		}
 	}
 	private class cancelPressed implements ActionListener {

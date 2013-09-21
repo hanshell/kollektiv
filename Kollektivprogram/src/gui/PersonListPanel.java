@@ -19,17 +19,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public class PersonListPanel extends JPanel {
-	private JList personlist;
+	private JList<String> personlist;
 	private JButton addPerson;
+	private JScrollPane scrollpane;
 	
 	public PersonListPanel(){
 		setLayout(new GridBagLayout());
 		
-		String[] names={"Dettefweafewafewafaw", "Erfwefawfewafwea", "Eawefwaefwaefn", "abcdefghijklmnopqrstuvwxyzæøå"};
+		String[] names={"Hans Melby", "Anne Sofie Solberg", "Martin Ervik", "Tormod Bjørnhaug"};
 		
 		GridBagConstraints gbc=new GridBagConstraints();
 		
@@ -43,10 +45,11 @@ public class PersonListPanel extends JPanel {
 		gbc.weighty=0.5;
 		
 		personlist=new JList<>(names);
-		add(personlist, gbc);
+		scrollpane=new JScrollPane(personlist);
+		add(scrollpane, gbc);
 		
 		gbc.anchor=GridBagConstraints.SOUTH;
-		gbc.fill=GridBagConstraints.NONE;
+		gbc.fill=GridBagConstraints.BOTH;
 		gbc.gridx=0;
 		gbc.gridy=1;
 		addPerson=new JButton("Legg til ny person");

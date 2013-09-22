@@ -32,11 +32,5 @@ public class DBConnection {
 	
 	public static void main(String[] args) {
 		connect();
-		try {
-			Person.printPersonContent();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

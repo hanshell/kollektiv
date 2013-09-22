@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -100,5 +101,10 @@ public class InfoPanel extends JPanel{
 		gbc.gridx=1;
 		gbc.gridy=4;
 		add(gender, gbc);
+		
+		for(Component c: getComponents())
+			if(c instanceof JTextField)
+				((JTextField) c).setEditable(false); //Sets every JTextField-editable field to false
+		
 	}
 }

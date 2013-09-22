@@ -1,5 +1,7 @@
 package gui;
 
+import model.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -13,6 +15,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.SecondaryLoop;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -33,7 +36,15 @@ public class PersonListPanel extends JPanel {
 		setLayout(new GridBagLayout());
 		setBorder(BorderFactory.createTitledBorder("Navn: "));
 		
-		String[] names={"Hans Melby", "Anne Sofie Solberg", "Martin Ervik", "Tormod Bjørnhaug"};
+//		String[] names={"Hans Melby", "Anne Sofie Solberg", "Martin Ervik", "Tormod Bjørnhaug"};
+		String[] names=null;
+		try {
+			names = getPersonList();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		GridBagConstraints gbc=new GridBagConstraints();
 		
@@ -56,5 +67,13 @@ public class PersonListPanel extends JPanel {
 		gbc.gridy=1;
 		addPerson=new JButton("Legg til ny person");
 		add(addPerson, gbc);
+	}
+	private String[] getPersonList() throws SQLException{
+		int listSize=Person.getNames().size();
+		String[] names=new String[listSize];
+		for(int i=0; i<listSize; i++){
+			names[i]=Person.getNames().get(i);
+		}
+		return names;
 	}
 }

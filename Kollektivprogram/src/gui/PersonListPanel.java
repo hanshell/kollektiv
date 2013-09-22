@@ -14,6 +14,7 @@ import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.SecondaryLoop;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -30,6 +31,7 @@ public class PersonListPanel extends JPanel {
 	
 	public PersonListPanel(){
 		setLayout(new GridBagLayout());
+		setBorder(BorderFactory.createTitledBorder("Navn: "));
 		
 		String[] names={"Hans Melby", "Anne Sofie Solberg", "Martin Ervik", "Tormod Bjørnhaug"};
 		
@@ -49,7 +51,7 @@ public class PersonListPanel extends JPanel {
 		add(scrollpane, gbc);
 		
 		gbc.anchor=GridBagConstraints.SOUTH;
-		gbc.fill=GridBagConstraints.BOTH;
+		gbc.fill=GridBagConstraints.SOUTH;
 		gbc.gridx=0;
 		gbc.gridy=1;
 		addPerson=new JButton("Legg til ny person");

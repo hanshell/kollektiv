@@ -48,6 +48,9 @@ public class LoginFrame extends JFrame{
 
 		loginButton.addActionListener(new loginPressed());
 		cancel.addActionListener(new cancelPressed());
+		
+		username.addKeyListener(new EnterPressed());
+		password.addKeyListener(new EnterPressed());
 
 		setVisible(true);
 		setResizable(false);
@@ -95,11 +98,21 @@ public class LoginFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			if(username.getText().equals("admin") && Arrays.equals(PASSWORD.toCharArray(), password.getPassword())){
-				dispose(); //Disposes the login-frame
-				MainPanel.showMainFrame(); //Opens the main application frame
+			performLogin();
+		}
+	}
+	private class EnterPressed implements KeyListener{
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			if(arg0.getKeyCode()==KeyEvent.VK_ENTER){
+				performLogin();
 			}
 		}
+		@Override
+		public void keyReleased(KeyEvent arg0) {			}
+		@Override
+		public void keyTyped(KeyEvent arg0) {}
+		
 	}
 	private class cancelPressed implements ActionListener {
 
@@ -108,6 +121,22 @@ public class LoginFrame extends JFrame{
 			// TODO Auto-generated method stub
 			System.exit(0);	
 		}	
+	}
+	
+	/*
+	 * Method for validating correct username and password
+	 */
+	private boolean validateFields(){
+		return username.getText().equals("admin") && Arrays.equals(PASSWORD.toCharArray(), password.getPassword());
+	}
+	private void performLogin(){
+		if(validateFields()){
+			dispose(); //Disposes the login-frame
+			MainPanel.showMainFrame(); //Opens the main application frame
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "PASSWORD INCORRECT, TRY AGAIN", "INCORRECT", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 	// TODO Auto-generated method stub
 }		

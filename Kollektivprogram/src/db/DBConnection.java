@@ -30,7 +30,12 @@ public class DBConnection {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		connect();
+		
+		Person.insertPerson("Magnus", "Skeide", "KomTek", 1991);
+		Person.insertPerson("Tormod", "Bjørnhaug", "KomTek", 1990);
+		Person.insertPerson("Jule", "Nissen", "Afrikastudier", 1353);
+		Person.insertPerson("Kristoffer", "Larsen", "Salting av fisk", 1992);
 	}
 }

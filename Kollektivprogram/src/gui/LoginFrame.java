@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,6 +34,8 @@ public class LoginFrame extends JFrame{
 	private JButton loginButton;
 	private JButton cancel;
 
+	private static final String PASSWORD="ukaergay";
+
 	public LoginFrame(){
 		super("Login frame");
 		setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -42,10 +45,10 @@ public class LoginFrame extends JFrame{
 		add(welcomePanel);
 		add(loginPanel);
 		add(buttonPanel);
-		
+
 		loginButton.addActionListener(new loginPressed());
 		cancel.addActionListener(new cancelPressed());
-		
+
 		setVisible(true);
 		setResizable(false);
 		setSize(450, 192);
@@ -80,11 +83,11 @@ public class LoginFrame extends JFrame{
 		loginButton=new JButton("Log in");
 		loginButton.setVisible(true);
 		loginButton.setSize(10, 5);
-		
+
 		cancel=new JButton("Cancel");
 		cancel.setVisible(true);
 		cancel.setSize(10, 5);
-		
+
 		buttonPanel.add(loginButton);
 		buttonPanel.add(cancel);
 	}
@@ -92,8 +95,10 @@ public class LoginFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			dispose(); //Disposes the login-frame
-			MainPanel.s(); //Opens the main application frame
+			if(username.getText().equals("admin") && Arrays.equals(PASSWORD.toCharArray(), password.getPassword())){
+				dispose(); //Disposes the login-frame
+				MainPanel.showMainFrame(); //Opens the main application frame
+			}
 		}
 	}
 	private class cancelPressed implements ActionListener {

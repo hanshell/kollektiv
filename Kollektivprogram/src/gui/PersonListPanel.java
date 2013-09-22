@@ -56,25 +56,5 @@ public class PersonListPanel extends JPanel {
 		gbc.gridy=1;
 		addPerson=new JButton("Legg til ny person");
 		add(addPerson, gbc);
-		
-//		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-//				
-//		String[] names={"Dettefweafewafewafaw", "Erfwefawfewafwea", "Eawefwaefwaefn", "abcdefghijklmnopqrstuvwxyzæøå"};
-//
-//		personlist=new JList<>(names);
-//		personlist.setAlignmentX(Component.LEFT_ALIGNMENT);
-//		
-//		JButton button1=new JButton("test");
-//		button1.setAlignmentX(Component.LEFT_ALIGNMENT);
-//		
-//		
-//		
-//		for(int i=0; i<personlist.getModel().getSize(); i++){
-//			System.out.println(personlist.getModel().getElementAt(i));
-//		}
-//		this.add(personlist);
-//		this.add(button1);
-//		setBackground(Color.GREEN);
-		
 	}
 }

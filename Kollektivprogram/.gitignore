@@ -1,5 +1,4 @@
-.jar
-DBTest/
+.ctrl
 .log
-.lck
-.properties
+.dat
+.jar

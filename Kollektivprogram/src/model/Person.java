@@ -3,6 +3,7 @@ package model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import db.DBConnection;
 
@@ -11,7 +12,7 @@ public class Person {
 	private String lastName;
 	private String fieldOfStudy;
 	private int birthYear;
-	
+
 	public Person(String firstName, String lastName, String fieldOfStudy, int birthYear) {
 		super();
 		this.firstName = firstName;
@@ -71,7 +72,7 @@ public class Person {
 		String content="SELECT * FROM PERSONS";
 		PreparedStatement ps=DBConnection.connection.prepareStatement(content);
 		ResultSet rs=ps.executeQuery();
-		while(rs.next()==true){
+		while(rs.next()){
 			System.out.print(rs.getString("firstName")+" ");
 			System.out.print(rs.getString("lastName")+", ");
 			System.out.print(rs.getString("fieldOfStudy")+", ");
@@ -80,5 +81,31 @@ public class Person {
 		}
 		ps.close();
 		rs.close();
+	}
+	/*
+	 * method to return a list of every Person-object in the database
+	 */
+	public static ArrayList<Person> getPersonList() throws SQLException{
+		String content="SELECT * FROM PERSONS";
+
+		PreparedStatement ps=DBConnection.connection.prepareStatement(content);
+		ResultSet rs=ps.executeQuery();
+
+		ArrayList<Person> personlist=new ArrayList<Person>();
+
+		while(rs.next()){
+			personlist.add(new Person(rs.getString("firstName"), rs.getString("lastName"), rs.getString("fieldOfStudy"), rs.getInt("birthYear")));
+		}
+		ps.close();
+		rs.close();
+
+		return personlist;
+	}
+	public static ArrayList<String> getNames() throws SQLException{
+		ArrayList<String> names=new ArrayList<String>();
+		for(Person p: getPersonList()){
+			names.add(p.getFirstName()+" "+p.getLastName());
+		}
+		return names;
 	}
 }
